@@ -1,0 +1,106 @@
+.navbar-default {
+	background-color: transparent;
+	background: transparent;
+	border-color: transparent;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	position: fixed;
+	top: 10px;
+    left: 10%;
+    right:10%;
+}
+
+.navbar-default .navbar-nav .dropdown > a, .navbar-default .navbar-nav .dropdown > a:hover  {
+    color:#ffffff;
+  }
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+.navbar-default .navbar-right > li > a, .navbar-default .navbar-right > li > a:hover{
+	color: white;
+}
+
+.row .thumbnail {
+	border:0 none;
+    box-shadow: none;
+    border-radius:0;
+}
+
+
+
+.container h1 {
+	color: white;
+	left: 50%;
+	margin-left: -150px;
+	top: 20%;
+	text-align: center;
+	position: fixed;
+	font-family: Helvetica;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+	position: fixed;
+	top:33%;
+	left: 13%;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 180px;
+	height: 180px;
+}
+
+.flip-container, .front, .back p {
+	text-align:center;
+	color: white;
+	font-size: 20pt;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+html {
+	background: url(Assets/backgroundimg.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
