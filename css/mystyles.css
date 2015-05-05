@@ -1,15 +1,4 @@
-.navbar-default {
-	background-color: transparent;
-	background: transparent;
-	border-color: transparent;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	position: fixed;
-	top: 10px;
-    left: 10%;
-    right:10%;
-}
-
-.navbar-default .navbar-nav .dropdown > a, .navbar-default .navbar-nav .dropdown > a:hover  {
+.navbar-default .navbar-nav .dropdown > a, .navbar-default .navbar-nav .dropdown > a:hover, .navbar-default .navbar-nav .dropdown > a:visited  {
     color:#ffffff;
   }
 
@@ -21,7 +10,7 @@
     color: white;
 }
 
-.navbar-default .navbar-right > li > a, .navbar-default .navbar-right > li > a:hover{
+.navbar-default .navbar-right > li > a, .navbar-default .navbar-right > li > a:hover, .navbar-default .navbar-right > li > a:visited {
 	color: white;
 }
 
@@ -41,6 +30,17 @@
 	text-align: center;
 	position: fixed;
 	font-family: Helvetica;
+}
+
+h2 {
+	color: black;
+	text-align: center;
+	top: 10%;
+	font-family: Helvetica;
+}
+
+#topiccolumn {
+	background-color: rgb(163,115,52);
 }
 
 /* entire container, keeps perspective */
@@ -97,8 +97,17 @@
 	transform: rotateY(180deg);
 }
 
-html {
-	background: url(Assets/backgroundimg.png) no-repeat center center fixed;
+.btn, .btn:hover{
+	background-color: #36B5A8;
+	position:fixed;
+	border-color: #36B5A8;
+	top: 60%;
+	left: 50%;
+	margin-left: -100px;
+}
+
+.home {
+	background: url(../Assets/backgroundimg.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
