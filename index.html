@@ -7,6 +7,13 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	    <link href="./css/mystyles.css" rel="stylesheet">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			function logout() {
+		            FB.logout(function(response) {
+		              location.reload();
+		            });
+		        }
+		</script>
 	</head>
 	<body>
 		<div id="fb-root"></div>
@@ -15,7 +22,10 @@
 		    FB.init({
 		      appId      : '1113302968685346',
 		      xfbml      : true,
-		      version    : 'v2.3'
+		      version    : 'v2.3',
+			  status: true,
+	            cookie: true,
+	            xfbml: true
 		    });
 			FB.getLoginStatus(function(response) {
 			    if (response.status === 'connected') {
@@ -26,9 +36,8 @@
 			  });
 			function showAccountInfo() {
 			    FB.api('/me?fields=name,picture', function(response) {
-			      document.getElementById('loginstatus').innerHTML = ("<a href='#' id='login'><img src=" + response.picture.data.url + ">&nbsp;&nbsp;"  + response.name + "</a>");
+			      document.getElementById('loginstatus').innerHTML = ("<a href='#' id='login' onclick='javascript:logout();'><img src=" + response.picture.data.url + ">&nbsp;&nbsp;"  + response.name + "</a>");
 			    });
-			    document.getElementById('loginstatus').innerHTML = '<a href="login.html">Login</a>';
 			  }
 		  };
 		
@@ -64,7 +73,13 @@
 					            <li><a href="#">English</a></li>
 					            <li><a href="#">History</a></li>
 					            <li><a href="#">Computer Science</a></li>
-								<li><a href='lessons.html'>Economics</a></li>
+								<li class="dropdown-submenu">
+					                <a tabindex="-1" href="#">Economics</a>
+					                <ul class="dropdown-menu">
+										<li><a tabindex="-1" href="lessons.html">Microeconomics</a></li>
+										<li><a tabindex="-1" href="#">Macroeconomics</a></li>
+									</ul>
+								</li>
 					          </ul>
 					        </li>
 						  </ul>
@@ -150,7 +165,7 @@
 			    </div>
 			    <div class="back" style="background: rgba(163,115,52, .7);">
 					<br>
-					<p>43<br>Lessons</p>
+						<a href="lessons.html">43<br>Lessons</a>
 			    </div>
 			  </div>
 			</div>

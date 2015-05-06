@@ -24,7 +24,13 @@
 			      return;
 			    }
 			  });
-		  };
+		  FB.Event.subscribe('auth.login', function(r){
+		         console.log(r.status);
+		         if ( r.status === 'connected'){
+		              window.location.href = 'index.html'
+		         }
+		      });
+		    };
 		
 		  (function(d, s, id){
 		     var js, fjs = d.getElementsByTagName(s)[0];
@@ -58,7 +64,13 @@
 					            <li><a href="#">English</a></li>
 					            <li><a href="#">History</a></li>
 					            <li><a href="#">Computer Science</a></li>
-								<li><a href='lessons.html'>Economics</a></li>
+								<li class="dropdown-submenu">
+					                <a tabindex="-1" href="#">Economics</a>
+					                <ul class="dropdown-menu">
+										<li><a tabindex="-1" href="lessons.html">Microeconomics</a></li>
+										<li><a tabindex="-1" href="#">Macroeconomics</a></li>
+									</ul>
+								</li>
 					          </ul>
 					        </li>
 						  </ul>
@@ -75,6 +87,7 @@
 			  	FB.login(function(response) {
 				  }, {scope: 'email'});
 				  return false;
+				location.reload();
 			}
 			</script>
 		</div>

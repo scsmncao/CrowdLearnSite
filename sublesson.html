@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CrowdLearn</title>
+	    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	    <link href="./css/mystyles.css" rel="stylesheet">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			function logout() {
+		            FB.logout(function(response) {
+		              location.reload();
+		            });
+		        }
+		</script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1113302968685346',
+		      xfbml      : true,
+		      version    : 'v2.3'
+		    });
+			FB.getLoginStatus(function(response) {
+			    if (response.status === 'connected') {
+			      showAccountInfo();
+			    } else {
+			      document.getElementById('loginstatus').innerHTML = '<a href="login.html">Login</a>';
+			    }
+			  });
+			function showAccountInfo() {
+			    FB.api('/me?fields=name', function(response) {
+			      document.getElementById('loginstatus').innerHTML = ("<a href='#' onclick='javascript:logout();'>" + response.name + "</a>");
+			    });
+			  }
+		  };
+		
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+		<nav class="navbar-default" role="navigation" style="background-color: #037383;background: #037383; border-color: #037383;">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+					<a class="navbar-brand" href="index.html">
+                        <p>CrowdLearn</p>
+                    </a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      				<ul class="nav navbar-nav">
+        				<li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Subjects <span class="caret"></span></a>
+				          <ul class="dropdown-menu" role="menu">
+				            <li><a href="#">Math</a></li>
+				            <li><a href="#">Science</a></li>
+				            <li><a href="#">English</a></li>
+				            <li><a href="#">History</a></li>
+				            <li><a href="#">Computer Science</a></li>
+							<li class="dropdown-submenu">
+				                <a tabindex="-1" href="#">Economics</a>
+				                <ul class="dropdown-menu">
+									<li><a tabindex="-1" href="lessons.html">Microeconomics</a></li>
+									<li><a tabindex="-1" href="#">Macroeconomics</a></li>
+								</ul>
+							</li>
+				          </ul>
+				        </li>
+					  </ul>
+					 <ul class="nav navbar-nav navbar-right">
+						<li id="loginstatus">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="col-md-5" id="topiccolumn">
+			<div class="container" style="margin-left:12.5%">
+				<br><br>
+				<a href="lessons.html"><p style="color:white; font-size:10pt;">&#9664;Microeconomics</p></a>
+				<h2 style="color:white; font-size:30pt;">Demand and Supply <br> and Market Equilibrium</h2>
+				<hr width="300" align="left">
+				<p style="color:white; font-size:12pt;">Core idea of microeconomics. Demand and supply <br>and market equilibrium.</p>
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+				  <div class="panel panel-default" id="nav">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          The Demand Curve
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+						<h3>Law of Demand <br><img src="Assets/nounprojecttext.png" height="20" width="20" onclick="switchtext()">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20" onclick="switchvideo()">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20" onclick="switchproblem()"></h3> <br>
+						<h3>Changes and Shifts in Demand <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+						<h3>Normal and Inferior Goods <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default" id="nav">
+				    <div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				          The Supply Curve
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      <div class="panel-body" id="nav">
+				       	<h3>Law of Supply <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+						<h3>Changes and Shifts in Supply <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+						<h3>Long Term Supply Curve <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default" id="nav">
+				    <div class="panel-heading" role="tab" id="headingThree">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				          Marketing Equilibrium
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				      <div class="panel-body">
+				        <h3>Long Run Market Equilibrium <br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default" id="nav">
+				    <div class="panel-heading" role="tab" id="headingFour">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+				          Real Life Example
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+				      <div class="panel-body">
+				        <h3>Soda<br><img src="Assets/nounprojecttext.png" height="20" width="20">
+							&nbsp;&nbsp;<img src="Assets/nounprojectvideo.png" height="20" width="20">
+								&nbsp;&nbsp;<img src="Assets/nounprojectproblems.png" height="20" width="20"></h3> <br>
+				      </div>
+				    </div>
+				  </div>		
+			</div>
+		</div>
+		</div>
+		<div class="col-md-6" id="media" style="margin-left:5%">
+		</div>
+		<script>
+			var internaltext = "A microeconomic law that states, all other factors being equal, as the price of a good or service increases, \
+					consumer demand for the good or service will decrease, and vice versa. The law of demand says that the \
+						higher the price, the lower the quantity demanded, because consumers\' opportunity cost to acquire \
+						that good or service increases, and they must make more tradeoffs to acquire the more expensive product.";
+						
+			function inserttext() {
+				$("#internaltext").html(internaltext);
+			}
+			function insertedittext() {
+				document.getElementById("comment").innerHTML = internaltext;
+			}
+			function switchtext() {
+				document.getElementById('media').innerHTML = '\
+				<br><br> \
+				<h3>Law of Demand <a class="btn btn-default" href="#" role="button" id="edit" onclick="editme()">Edit</a> </h3> \
+				<hr width="600pt" align="left"> \
+				<h3>Definition: </h3> \
+				<p style="font-size:14pt" id="internaltext"></p>';
+				inserttext();
+			}
+			
+			function editme() {
+				document.getElementById('media').innerHTML = '\
+				<br><br> \
+				<h3>Law of Demand</h3> \
+				<hr width="600pt" align="left"> \
+				<h3>Definition: </h3> \
+				<textarea class="form-control" rows="5" id="comment"></textarea><br><br><a class="btn btn-default" href="#" role="button" id="save" onclick="save()">Save</a>';
+				insertedittext();
+			}
+			function save() {
+				internaltext = document.getElementById("comment").value;
+				switchtext();
+			}
+			
+			function switchvideo() {
+				document.getElementById('media').innerHTML = '<br><br><p style="font-size:20pt; position:fixed; margin-left:-50pt; margin-top:150pt" onclick = "increase()">&#9650;</p><p style="font-size:20pt;position:fixed; margin-left:-45pt; margin-top:180pt" id="votenumber">0</p><p style="font-size:20pt;position:fixed; margin-left:-50pt; margin-top:210pt" onclick="decrease()">&#9660;</p><iframe width="720" height="480" src="https://www.youtube.com/embed/qYknhOx6HEc" frameborder="0" allowfullscreen></iframe>'
+			}
+			
+			function switchproblem() {
+				document.getElementById('media').innerHTML = '<br><br> \
+				<p style="font-size:12pt">Nathan and Joe are shopping for video games. Nathan\'s demand function for video games <br> \
+					is Q = 30 - 3P, and Joe\'s demand function is Q = 48 - 4P. What will their combined demand <br>be if the price is $5?</p> \
+					<div class="col-lg-5" style="left:-15pt"> \
+					<input id="answer" type="text" class="form-control" placeholder="Answer" aria-describedby="basic-addon1"> </div> \
+					<div class="col-lg-3" id="checkmark"> \
+					</div> \
+			</div>'
+				$("#answer").keyup(function(event){
+			    if(event.keyCode == 13){
+			        if ($("#answer").val() == "43") {
+						 $("#answer").prop("disabled", true);
+						 $("#checkmark").html('<img src="Assets/checkmark.png" height="35" width="35">');
+					}
+			    }
+			});
+			}
+			function increase() {
+				var number = parseInt(document.getElementById('votenumber').innerHTML);
+				number = number + 1;
+				document.getElementById('votenumber').innerHTML = "" + number;
+			}
+			function decrease() {
+				var number = parseInt(document.getElementById('votenumber').innerHTML);
+				number = number - 1;
+				document.getElementById('votenumber').innerHTML = "" + number;
+			}
+		</script>
+	</body>
+</html>
